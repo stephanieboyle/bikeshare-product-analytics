@@ -1,0 +1,39 @@
+{
+  "provider": "Cloudflare Pages",
+  "url": "https://bike-reliability-studio.pages.dev",
+  "visibility": "public",
+  "repository_visibility": "private",
+  "project_name": "bike-reliability-studio",
+  "production_branch": "main",
+  "root_directory": "dashboard",
+  "framework": "None",
+  "build_command": "",
+  "build_output_directory": ".",
+  "runtime": "static assets only; no Functions or bindings",
+  "checked_at_utc": "2026-11-13T10:54:18.289943+00:00",
+  "verified_app_source_commit": "f3655df665e24a847b9dc7b7d46864e2f8881a2a",
+  "browser_checks": [
+    "Public page loads without visitor login",
+    "October filter: 677293 rides / 31 days",
+    "Natural first-person methods copy",
+    "No browser console errors"
+  ],
+  "assets": [
+    {
+      "path": "app.js",
+      "http_status": 200,
+      "sha256": "af30cc88a4558d41848e5f7bc62f1d316ecd24e082bdef38eefdf6592eec1563"
+    },
+    {
+      "path": "style.css",
+      "http_status": 200,
+      "sha256": "32c10c3664c62e080ec9e303a843b4c2782424c7bc90428b8dfc193cbf354540"
+    },
+    {
+      "path": "data.json",
+      "http_status": 200,
+      "sha256": "df2d1d6a91eb5d1520368f7e02e446c40bba70db3ae798bfcaa4994087182fa6"
+    }
+  ],
+  "cost_configuration": "No paid plan, domain purchase, payment details or paid service enabled during setup"
+}

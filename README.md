@@ -6,7 +6,7 @@
 
 Independent, non-commercial portfolio project using Capital Bikeshare's published data. No operator affiliation or endorsement.
 
-**Interactive reporting app:** source and local preview instructions are in [dashboard/](dashboard/README.md). A private working preview has been deployed; the owner prefers another free host for the portfolio version. See [hosting options](docs/hosting_options.md).
+**[Open the interactive dashboard ↗](https://bike-reliability-studio.pages.dev)** — public Cloudflare Pages site; no visitor sign-in required. The GitHub repository remains private. [App source and local preview instructions](dashboard/README.md).
 
 ## What I wanted to find out
 

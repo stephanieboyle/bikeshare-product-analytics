@@ -34,3 +34,8 @@ Reviewed 13 November 2026 against source responses, local database outputs, inde
 GitHub CI passed on Linux/Python 3.11 for reviewed implementation commit 2487416 ([run](https://github.com/stephanieboyle/bikeshare-product-analytics/actions/runs/43404163212)); local validation used macOS/Python 3.10.6. CI installs the frozen dependency graph then executes credential-free checks with synthetic fixtures and committed aggregates. It does not recollect live data or redistribute raw trips. Prospective reruns produce new evidence, not a replay of the same historical state. Source revisions can change hashes and findings. Full GBFS schema conformance, operational service uptime, field tracking and network-interference inference are not certified by these tests.
 
 Remaining analytical work: sustained prospective observation; daily/window splitting; mature coverage/ranking/weighting and coarser-interval sensitivities; nearby-alternative feasibility; credible future-period uncertainty; current-app audit and rider research; operator-side A/A tracking pilot; field-design calibration. These are evidence gates, not hidden completed deliverables.
+
+
+## Public reporting app verification
+
+Cloudflare Pages deployment verified at https://bike-reliability-studio.pages.dev. Browser checks confirmed public access without a login, the revised first-person copy, the October subset (677,293 rides / 31 calendar days), and no console errors. Direct HTTPS checks matched the deployed JavaScript, CSS and aggregate data hashes to the committed assets. Hosting changes do not expand the 95-second availability sample or establish a product effect. The analysis repository stays private; links to private supporting documents are labelled accordingly.

@@ -1,10 +1,10 @@
 # Hosting the reporting app somewhere else
 
-Checked official documentation on 13 November 2026. The owner prefers a free host without a ChatGPT URL. The dashboard is plain HTML/CSS/JavaScript, so no rewrite or paid server is required. Cloudflare Pages has now been selected by the owner. Deployment is prepared but requires the owner to sign in to Cloudflare and authorise the selected repository. The GitHub repository remains private.
+Checked official documentation on 13 November 2026. The owner prefers a free host without a ChatGPT URL. The dashboard is plain HTML/CSS/JavaScript, so no rewrite or paid server is required. Cloudflare Pages is now deployed at https://bike-reliability-studio.pages.dev. The site is public and the GitHub repository remains private. The other providers below remain alternatives, not additional deployments.
 
 ## Cloudflare Pages: recommended while the repository stays private
 
-Supports private GitHub repositories and automatic updates from Git. Static asset requests are free and unlimited; the Free plan allows 500 builds/month. A free `pages.dev` address is provided, with custom domains optional. An owner account and permission to read the selected repository are needed. Configure `main` as the production branch, no framework/build command, and `dashboard` as the output directory (or use `dashboard` as root and `.` as output). Publish the static app only, never the raw-data directories.
+Supports private GitHub repositories and automatic updates from Git. Static asset requests are free and unlimited; the Free plan allows 500 builds/month. A free `pages.dev` address is provided, with custom domains optional. An owner account and permission to read the selected repository are needed. Actual configuration: production branch `main`, framework `None`, build command blank, root directory `dashboard`, output directory `.`. Publish the static app only, never the raw-data directories.
 
 Sources: https://developers.cloudflare.com/pages/get-started/git-integration/ ; https://developers.cloudflare.com/pages/platform/limits/ ; https://developers.cloudflare.com/pages/functions/pricing/
 

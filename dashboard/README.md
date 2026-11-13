@@ -23,4 +23,10 @@ node dashboard/check.mjs
 
 The export reconciles daily/hourly cells and station endpoints to the fact model. It preserves actual start-month cohort attribution, direction-specific missing-station denominators and evidence-class labels. Station CSV export is an aggregate analysis of the current filters/search, not a standalone source dataset. Print report prints the currently selected view.
 
-Hosting uses a separate private Sites source repository with the same static assets. Its deployment identity is intentionally separate from this analysis repository. No source credential is stored in either checkout. The private preview was successfully deployed. The owner now prefers another free host; see `docs/hosting_options.md` for the shortlist. No provider-specific runtime code is needed.
+## Live version
+
+**https://bike-reliability-studio.pages.dev** — public portfolio site on Cloudflare Pages; no visitor sign-in required. The source repository stays private.
+
+Cloudflare is connected only to `bikeshare-product-analytics`. Production branch: `main`; root directory: `dashboard`; framework: `None`; build command: blank; output directory: `.`. Git pushes trigger automatic deployments. This is static hosting with no Functions, database or paid runtime services. No paid plan, domain purchase or payment details were enabled during setup.
+
+`reports/deployment.json` records the verified URL, source commit, served asset hashes and browser checks. An older owner-private Sites preview also exists, but this Cloudflare URL is the portfolio version.

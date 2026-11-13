@@ -22,3 +22,5 @@
 | 2026-11-13 | Add an interactive reporting app after analytical validation | Owner explicitly requested a dashboard. Static aggregate cells reconcile to the validated fact model; historical, prospective and synthetic evidence remain distinct |
 | 2026-11-13 | Warm dusty-blue, rose-pink and cream/peach palette | Owner rejected the initial green and cool indigo palettes; applied the warmer preference across charts, navigation and evidence labels |
 | 2026-11-13 | Use a plainer, first-person voice | Owner asked for the app to sound more like them. Replaced formal portfolio language with what I looked at, found, still need to check and would try next; kept the statistical definitions and evidence limits |
+
+| 2026-11-13 | Publish the reporting app on Cloudflare Pages | Owner requested a free host without a ChatGPT URL and approved the GitHub connection. Limited installation to the one private repository, deployed static dashboard only, verified public URL https://bike-reliability-studio.pages.dev and served asset hashes. No paid services enabled |
