@@ -13,6 +13,7 @@
 - Produced six evidence-labelled charts, product recommendation, methodology, measurement, experiment/tracking plans, repeated synthetic simulation, interview notes, decision log and sceptical review.
 - Ran 23 offline fixture/integration tests, lint and output checks; ran the real-data dbt build. Reviewed exclusions, month boundaries, DST, joins, denominators, uncertainty and chart rendering.
 - Prepared credential-free CI checks and practical local scheduling instructions. No scheduler is installed or left running.
+- Created and pushed the private repository: https://github.com/stephanieboyle/bikeshare-product-analytics. GitHub CI passed on Linux/Python 3.11: https://github.com/stephanieboyle/bikeshare-product-analytics/actions/runs/43404163212 (reviewed implementation commit 2487416).
 
 ## Evidence still required
 
@@ -25,4 +26,4 @@
 
 Run commands from the repository root; installation and source downloads require network. See README for reproducibility and `docs/collection_runbook.md` for a local cron option. Pause collection during DuckDB analysis/writes. Do not commit source data or make the repository public without instruction.
 
-GitHub: private repository creation/push and remote CI verification are recorded in the delivery commit and final response; source observations are never pushed. No credential blocker remains.
+GitHub delivery is complete and the repository is verified private. Source observations remain local. The remaining work is evidence collection and operator/research access for a real field experiment, not a missing implementation or credential step.
