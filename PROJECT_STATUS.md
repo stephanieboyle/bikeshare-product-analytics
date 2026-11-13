@@ -11,7 +11,7 @@
 - Collected two real GBFS snapshots for 875 monitored stations across 95 seconds; froze the station cohort and retained source clocks, metadata versions, operating flags and type counts locally.
 - Implemented capped availability intervals, coverage, closure handling, zero-run support and sensitivity summaries. No pilot reliability rankings or future-week intervals.
 - Produced six evidence-labelled charts, product recommendation, methodology, measurement, experiment/tracking plans, repeated synthetic simulation, interview notes, decision log and sceptical review.
-- Ran 23 offline fixture/integration tests, lint and output checks; ran the real-data dbt build. Reviewed exclusions, month boundaries, DST, joins, denominators, uncertainty and chart rendering.
+- Ran 25 offline fixture/integration tests, lint and output checks; ran the real-data dbt build. Reviewed exclusions, month boundaries, DST, joins, denominators, uncertainty and chart rendering.
 - Prepared credential-free CI checks and practical local scheduling instructions. No scheduler is installed or left running.
 - Created and pushed the private repository: https://github.com/stephanieboyle/bikeshare-product-analytics. GitHub CI passed on Linux/Python 3.11: https://github.com/stephanieboyle/bikeshare-product-analytics/actions/runs/43404163212 (reviewed implementation commit 2487416).
 
@@ -26,17 +26,22 @@
 
 Run commands from the repository root; installation and source downloads require network. See README for reproducibility and `docs/collection_runbook.md` for a local cron option. Pause collection during DuckDB analysis/writes. Do not commit source data or make the repository public without instruction.
 
-GitHub delivery is complete and the repository is verified private. Source observations remain local. The remaining work is evidence collection and operator/research access for a real field experiment, not a missing implementation or credential step.
+GitHub delivery is complete; the owner has authorised the public release after numerical and history review. Source observations remain local. The remaining work is evidence collection and operator/research access for a real field experiment, not a missing implementation or credential step.
 
 ## Reporting app extension
 
-At the owner's request, built a five-section interactive portfolio app after validating the analysis: journey overview, station explorer, availability pilot, experiment lab and methods/evidence. Month/type/category filters, chart tooltips, station search/sort/pagination/CSV export, rule sensitivities, planning sliders and print view are implemented. Aggregate export reconciles to the same eligible-rental cohort. Desktop and mobile browser checks found no console errors or mobile page overflow. The latest palette follows the requested dusty blues, rose pinks and warm cream/peach colours. A working owner-private Sites preview has been deployed and its sign-in gate checked. The owner selected Cloudflare Pages and the public portfolio is now live at https://bike-reliability-studio.pages.dev; the GitHub repository remains private. `docs/hosting_options.md` records the shortlist and configuration. The GitHub checkpoint includes reproducible static app source under `dashboard/`.
+At the owner's request, built a five-section interactive portfolio app after validating the analysis: journey overview, station explorer, availability pilot, experiment lab and methods/evidence. Month/type/category filters, chart tooltips, station search/sort/pagination/CSV export, rule sensitivities, planning sliders and print view are implemented. Aggregate export reconciles to the same eligible-rental cohort. Desktop and mobile browser checks found no console errors or mobile page overflow. The latest palette follows the requested dusty blues, rose pinks and warm cream/peach colours. A working owner-private Sites preview has been deployed and its sign-in gate checked. The owner selected Cloudflare Pages and the public portfolio is now live at https://bike-reliability-studio.pages.dev; the GitHub repository is now public. `docs/hosting_options.md` records the shortlist and configuration. The GitHub checkpoint includes reproducible static app source under `dashboard/`.
 
 
 ## Cloudflare Pages migration · complete
 
 Public dashboard: **https://bike-reliability-studio.pages.dev**. Cloudflare reported a successful deployment and the browser loaded it without a visitor login. The October filter returned 677,293 rides over 31 days, the first-person copy was checked, and no browser console errors were observed. HTTP checks verified that app.js, style.css and data.json match the committed local assets byte-for-byte; see `reports/deployment.json`.
 
-The GitHub app installation is limited to `bikeshare-product-analytics`; the analysis repository is still private. Actual settings: production branch `main`, root directory `dashboard`, framework `None`, build command blank, output directory `.`. Git pushes trigger automatic deployment. No paid plan, domain purchase, payment details, Functions, database or paid service was enabled during setup.
+The GitHub app installation is limited to `bikeshare-product-analytics`; the analysis repository is now public. Actual settings: production branch `main`, root directory `dashboard`, framework `None`, build command blank, output directory `.`. Git pushes trigger automatic deployment. No paid plan, domain purchase, payment details, Functions, database or paid service was enabled during setup.
 
 Remaining work is sustained availability collection and the research/operator evidence gates above, not hosting or app implementation. An older private Sites preview remains separate from the public portfolio URL.
+
+
+## Public source release and numerical recheck
+
+The owner authorised public visibility on 13 November 2026. The repository has been made public after a full-history source/credential review and independent source audits. Historical figures reconcile across all 36 app filter combinations; raw GBFS arithmetic matches 24 sensitivity summaries and two vehicle-type summaries. All nine simulations reproduce exactly; 100 calculator combinations agree with the statistical reference within stated approximation/rounding limits. Two additional DST regression cases bring the Python suite to 25 tests. Raw observations and credentials stay local and ignored. Changes are on `review/bikeshare-public-release` for a reviewed merge.

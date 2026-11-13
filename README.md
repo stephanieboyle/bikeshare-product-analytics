@@ -6,7 +6,7 @@
 
 Independent, non-commercial portfolio project using Capital Bikeshare's published data. No operator affiliation or endorsement.
 
-**[Open the interactive dashboard ↗](https://bike-reliability-studio.pages.dev)** — public Cloudflare Pages site; no visitor sign-in required. The GitHub repository remains private. [App source and local preview instructions](dashboard/README.md).
+**[Open the interactive dashboard ↗](https://bike-reliability-studio.pages.dev)** — public Cloudflare Pages site; no visitor sign-in required. The GitHub repository is public. [App source and local preview instructions](dashboard/README.md).
 
 ## What I wanted to find out
 
@@ -79,3 +79,12 @@ All **six charts** are in [reports/figures](reports/figures): daily rentals; wee
 No public attempted-journey denominator, stable user ID, historical availability archive in the official sources reviewed, or causal feature evidence. Current station metadata cannot establish historical capacity. Polling misses between-snapshot changes; closures and unobserved periods are not stockouts. Two weeks of collection would be exploratory; plan 8–12 weeks before assessing recurrence and possible future-week inference, subject to coverage and dependence checks. More rides alone would not establish reduced emissions.
 
 Next: follow the [local scheduling instructions](docs/collection_runbook.md), audit the current app, conduct rider research, and validate operator-side intent/rental linkage. Mature station-window analysis and a confirmatory field trial remain future work. [PROJECT_STATUS.md](PROJECT_STATUS.md) records delivery and evidence gates.
+
+For the independent numerical recheck against retained local source files:
+
+```bash
+uv run python scripts/audit_numerical_accuracy.py
+uv run python scripts/audit_pilot_accuracy.py
+```
+
+The audit checks all 36 historical filter combinations and directly recomputes the pilot metrics. Aggregate audit records are committed under `reports/`; raw source files remain local.

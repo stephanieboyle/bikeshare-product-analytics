@@ -2,7 +2,7 @@
   "provider": "Cloudflare Pages",
   "url": "https://bike-reliability-studio.pages.dev",
   "visibility": "public",
-  "repository_visibility": "private",
+  "repository_visibility": "public",
   "project_name": "bike-reliability-studio",
   "production_branch": "main",
   "root_directory": "dashboard",
@@ -35,5 +35,6 @@
       "sha256": "df2d1d6a91eb5d1520368f7e02e446c40bba70db3ae798bfcaa4994087182fa6"
     }
   ],
-  "cost_configuration": "No paid plan, domain purchase, payment details or paid service enabled during setup"
+  "cost_configuration": "No paid plan, domain purchase, payment details or paid service enabled during setup",
+  "verification_scope": "Initial deployment asset hashes; repository subsequently made public after an independent numerical and history audit."
 }

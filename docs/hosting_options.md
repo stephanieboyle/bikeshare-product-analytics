@@ -1,8 +1,8 @@
 # Hosting the reporting app somewhere else
 
-Checked official documentation on 13 November 2026. The owner prefers a free host without a ChatGPT URL. The dashboard is plain HTML/CSS/JavaScript, so no rewrite or paid server is required. Cloudflare Pages is now deployed at https://bike-reliability-studio.pages.dev. The site is public and the GitHub repository remains private. The other providers below remain alternatives, not additional deployments.
+Checked official documentation on 13 November 2026. The owner prefers a free host without a ChatGPT URL. The dashboard is plain HTML/CSS/JavaScript, so no rewrite or paid server is required. Cloudflare Pages is now deployed at https://bike-reliability-studio.pages.dev. The dashboard and source repository are public. The other providers below remain alternatives, not additional deployments.
 
-## Cloudflare Pages: recommended while the repository stays private
+## Cloudflare Pages: the selected host
 
 Supports private GitHub repositories and automatic updates from Git. Static asset requests are free and unlimited; the Free plan allows 500 builds/month. A free `pages.dev` address is provided, with custom domains optional. An owner account and permission to read the selected repository are needed. Actual configuration: production branch `main`, framework `None`, build command blank, root directory `dashboard`, output directory `.`. Publish the static app only, never the raw-data directories.
 
@@ -10,7 +10,7 @@ Sources: https://developers.cloudflare.com/pages/get-started/git-integration/ ; 
 
 ## GitHub Pages: simplest if public dashboard source is acceptable
 
-Free hosting from a public repository on GitHub Free. A private source repository requires an eligible paid GitHub plan. The website can use `stephanieboyle.github.io/<project>/`. A separate public repository containing only the reporting app could leave the analysis repository private, but making any source public requires the owner's explicit instruction. No such change has been made.
+Free hosting from a public repository on GitHub Free. A private source repository requires an eligible paid GitHub plan. The website can use `stephanieboyle.github.io/<project>/`. A separate public repository containing only the reporting app could leave the analysis repository private, but making any source public requires the owner's explicit instruction. The owner has now authorised making the analysis repository public; the selected host remains Cloudflare Pages.
 
 Source: https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages
 
