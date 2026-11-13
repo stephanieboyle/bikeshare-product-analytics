@@ -23,4 +23,4 @@ node dashboard/check.mjs
 
 The export reconciles daily/hourly cells and station endpoints to the fact model. It preserves actual start-month cohort attribution, direction-specific missing-station denominators and evidence-class labels. Station CSV export is an aggregate analysis of the current filters/search, not a standalone source dataset. Print report prints the currently selected view.
 
-Hosting uses a separate private Sites source repository with the same static assets. Its deployment identity is intentionally separate from this analysis repository. No source credential is stored in either checkout. The hosted link and deployment verification are recorded in the final delivery update.
+Hosting uses a separate private Sites source repository with the same static assets. Its deployment identity is intentionally separate from this analysis repository. No source credential is stored in either checkout. The private preview was successfully deployed. The owner now prefers another free host; see `docs/hosting_options.md` for the shortlist. No provider-specific runtime code is needed.

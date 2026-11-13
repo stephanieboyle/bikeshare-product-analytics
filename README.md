@@ -6,7 +6,7 @@
 
 Independent, non-commercial portfolio project using Capital Bikeshare's published data. No operator affiliation or endorsement.
 
-**Interactive reporting app:** source and local preview instructions are in [dashboard/](dashboard/README.md). The private hosted version is being prepared.
+**Interactive reporting app:** source and local preview instructions are in [dashboard/](dashboard/README.md). A private working preview has been deployed; the owner prefers another free host for the portfolio version. See [hosting options](docs/hosting_options.md).
 
 ## What I wanted to find out
 
