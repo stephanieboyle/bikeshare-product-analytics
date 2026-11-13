@@ -4,6 +4,11 @@ __pycache__/
 .ruff_cache/
 *.egg-info/
 .env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
 /data/raw/
 /data/processed/
 /data/*.duckdb*

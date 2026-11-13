@@ -1,0 +1,9 @@
+{
+  "method": "Independent arithmetic from original saved GBFS JSON; no collector/model functions imported",
+  "snapshots": 2,
+  "stations": 875,
+  "horizon_seconds": 95.04524803161621,
+  "sensitivity_summaries_checked": 24,
+  "vehicle_type_summaries_checked": 2,
+  "freshness_diagnostics": "median, p95 and stale-observation share match"
+}

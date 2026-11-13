@@ -97,8 +97,11 @@ def block_interval(daily, seed=173, repetitions=2000, block=7):
     """Future-day mean, moving blocks; require 56 consecutive daily ratios, no missing days."""
     if len(daily) < 56 or daily.isna().any():
         raise ValueError('At least 56 complete consecutive days required; report descriptively meanwhile')
-    if not isinstance(daily.index, pd.DatetimeIndex) or not (daily.index.to_series().diff().dropna() ==
-                                                           pd.Timedelta(days=1)).all():
+    if not isinstance(daily.index, pd.DatetimeIndex):
+        raise ValueError('Daily series must have a consecutive DatetimeIndex')
+    # Calendar days can be 23 or 25 elapsed hours across daylight-saving changes.
+    dates = daily.index.tz_localize(None).normalize()
+    if not (dates.to_series().diff().dropna() == pd.Timedelta(days=1)).all():
         raise ValueError('Daily series must have a consecutive DatetimeIndex')
     rng = np.random.default_rng(seed)
     x = daily.to_numpy()

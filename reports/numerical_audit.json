@@ -1,0 +1,26 @@
+{
+  "method": "Independent pandas recomputation from original SHA-256-verified ZIPs; no dbt models used",
+  "source_rows": 2000497,
+  "excluded_rows": 1265,
+  "totals": {
+    "n": 1999232,
+    "missing_start": 290065,
+    "missing_end": 305363,
+    "electric": 1428106,
+    "members": 1428971
+  },
+  "filter_combinations_checked": 36,
+  "daily_cells_checked": 368,
+  "hourly_cells_checked": 2016,
+  "station_cells_checked": 10193,
+  "top10_window_overlap": 8,
+  "source_sha256": {
+    "202608": "bd59385ba5a872f687d685269d6f6fec7cfe3e7bbf5c4de29422e73b87db4471",
+    "202609": "5f4517b46f7c11e5eb088221f0b83d8c348931e157c117a93346048958171435",
+    "202610": "f57da7b7b93f95d3e14f4377369b1db2aeb2c5f6542d30a60ecd25f4507a69fe"
+  },
+  "missing_start_percentage": 14.508821387412766,
+  "missing_end_percentage": 15.274015221845188,
+  "electric_percentage": 71.43273016838467,
+  "members_percentage": 71.47599678276458
+}
