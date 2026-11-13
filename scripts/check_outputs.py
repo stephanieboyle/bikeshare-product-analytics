@@ -33,3 +33,10 @@ for f in figs:
     with Image.open(f) as im:
         im.verify()
 print(f'Aggregate evidence checks passed; {len(figs)} readable figures. Source re-extraction needs network.')
+
+# Public-release independent audit records; raw-source rechecks run locally only.
+a = json.loads(Path('reports/numerical_audit.json').read_text())
+assert a['source_rows'] == source_rows and a['totals']['n'] == eligible
+assert a['excluded_rows'] == excluded and a['filter_combinations_checked'] == 36
+assert json.loads(Path('reports/pilot_numerical_audit.json').read_text())['sensitivity_summaries_checked'] == 24
+assert json.loads(Path('reports/power_numerical_audit.json').read_text())['maximum_power_error'] < 2e-7

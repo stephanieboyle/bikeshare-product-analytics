@@ -126,3 +126,10 @@ def test_inference_refuses_short_or_gapped_series():
     index = pd.date_range('2026-01-01', periods=56)
     interval = block_interval(pd.Series([.9] * 56, index=index), repetitions=100)
     assert np.allclose(interval, [.9, .9])
+
+
+@pytest.mark.parametrize('start', ['2026-02-10', '2026-10-01'])
+def test_daily_blocks_accept_local_calendar_days_across_dst(start):
+    index = pd.date_range(start, periods=56, freq='D', tz='America/New_York')
+    result = block_interval(pd.Series([.8] * 56, index=index), repetitions=100)
+    assert np.allclose(result, [.8, .8])

@@ -1,0 +1,5 @@
+{
+  "same_seed_reproduction": "exact match for all nine scenarios",
+  "repetitions_per_scenario": 2000,
+  "seed": 20261113
+}

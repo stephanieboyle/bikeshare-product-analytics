@@ -1,0 +1,7 @@
+{
+  "reference": "statsmodels NormalIndPower, compared to actual JavaScript calculator functions",
+  "parameter_combinations": 100,
+  "maximum_power_error": 1.1316914920456167e-07,
+  "maximum_required_sample_rounding_difference": 1,
+  "baseline_70pct_effect_2pp_required_per_arm": 8079
+}

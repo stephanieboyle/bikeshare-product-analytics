@@ -25,7 +25,7 @@ The export reconciles daily/hourly cells and station endpoints to the fact model
 
 ## Live version
 
-**https://bike-reliability-studio.pages.dev** — public portfolio site on Cloudflare Pages; no visitor sign-in required. The source repository stays private.
+**https://bike-reliability-studio.pages.dev** — public portfolio site on Cloudflare Pages; no visitor sign-in required. The source repository is public.
 
 Cloudflare is connected only to `bikeshare-product-analytics`. Production branch: `main`; root directory: `dashboard`; framework: `None`; build command: blank; output directory: `.`. Git pushes trigger automatic deployments. This is static hosting with no Functions, database or paid runtime services. No paid plan, domain purchase or payment details were enabled during setup.
 
