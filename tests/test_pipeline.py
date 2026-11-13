@@ -36,6 +36,7 @@ def test_dbt_dst_dedup_and_quality(tmp_path):
         row('negative', '2026-11-02 08:10:00', '2026-11-02 08:00:00'),
         row('long', '2026-11-02 08:00:00', '2026-11-04 08:00:00'),
         row('missing_station', '2026-11-02 09:00:00', '2026-11-02 09:05:00', station=''),
+        row('boundary', '2026-08-31 23:55:00', '2026-09-01 00:05:00', '202609'),
         row('winter', '2026-11-02 08:00:00', '2026-11-02 08:10:00'),
         row('summer', '2026-08-02 08:00:00', '2026-08-02 08:10:00', '202608'),
     ]
@@ -48,13 +49,14 @@ def test_dbt_dst_dedup_and_quality(tmp_path):
                             env=env, capture_output=True, text=True)
     assert result.returncode == 0, result.stdout + result.stderr
     c = duckdb.connect(str(db))
-    assert c.sql('select count(*) from fct_trips').fetchone()[0] == 4
+    assert c.sql('select count(*) from fct_trips').fetchone()[0] == 5
     assert c.sql("select count(*) from stg_trips where quality_status='unresolved_dst'").fetchone()[0] == 2
     assert c.sql("select departure_station_code from fct_trips where ride_id='ok'").fetchone()[0] == '001'
     assert c.sql("select departure_station_code from fct_trips where ride_id='missing_station'").fetchone()[0] is None
     c.execute("set timezone='UTC'")
     hours = dict(c.sql("select ride_id, extract(hour from start_utc) from fct_trips where ride_id in ('summer','winter')").fetchall())
     assert hours == {'summer': 12, 'winter': 13}
+    assert c.sql("select analysis_month from fct_trips where ride_id='boundary'").fetchone()[0] == '202608'
     c.close()
 
 
@@ -115,3 +117,18 @@ def test_collector_idempotence_provenance_and_failure(tmp_path, monkeypatch):
     assert c.sql('select count(*) from live_status').fetchone()[0] == 1
     assert c.sql('select count(*) from collection_runs where not success').fetchone()[0] == 1
     c.close()
+
+
+def test_one_shot_scheduler_persists_ttl_floor(tmp_path, monkeypatch):
+    from datetime import datetime, timezone
+    from bikeshare_analytics.collect import collect
+    monkeypatch.chdir(tmp_path)
+    calls = []
+    monkeypatch.setattr('bikeshare_analytics.collect.now',
+                        lambda: datetime.fromtimestamp(100, timezone.utc))
+    monkeypatch.setattr('bikeshare_analytics.collect.collect_once',
+                        lambda db: calls.append(db) or 600)
+    collect('data/bikeshare.duckdb', count=1, interval=120)
+    collect('data/bikeshare.duckdb', count=1, interval=120)
+    assert len(calls) == 1
+    assert json.loads((tmp_path / 'data/raw/next_request.json').read_text())['not_before'] == 700

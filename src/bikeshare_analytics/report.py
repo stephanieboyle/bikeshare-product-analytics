@@ -16,7 +16,7 @@ SOURCE = 'Source: Capital Bikeshare published trips; independent non-commercial 
 
 
 def save(fig, name, note=SOURCE):
-    fig.text(.01, -.025, note, fontsize=9, color='#555555')
+    fig.text(.01, -.10, note, fontsize=9, color='#555555', va='top')
     fig.savefig(f'reports/figures/{name}.png', dpi=170, bbox_inches='tight')
     plt.close(fig)
 
@@ -28,7 +28,7 @@ def report(db='data/bikeshare.duckdb'):
     plt.rcParams.update({'axes.spines.top': False, 'axes.spines.right': False,
                          'font.size': 10, 'axes.titlesize': 13})
     audit = c.sql('select source_month, quality_status, count(*) n from stg_trips group by all order by all').df()
-    trips = c.sql('''select source_month, count(*) n,
+    trips = c.sql('''select analysis_month, count(*) n,
        count(*) filter(where departure_station_code is null) missing_start,
        count(*) filter(where arrival_station_code is null) missing_end,
        count(*) filter(where duration_seconds < 60) subminute,
@@ -113,6 +113,8 @@ def report(db='data/bikeshare.duckdb'):
     ax.legend()
     save(fig, '06_historical_departure_arrival', SOURCE +
          '\nSame local date horizon; arrivals after 31 October excluded. Rides selected by departure month.')
+    summary['archive_month_boundaries'] = c.sql("""select source_month, strftime(start_local,'%Y%m') as start_month,
+      strftime(end_local,'%Y%m') as end_month, count(*) n from stg_trips group by all order by all""").df().to_dict('records')
     summary['duration_audit'] = c.sql("""select
       count(*) filter(where duration_seconds <= 0) as nonpositive,
       count(*) filter(where duration_seconds > 86400) as over_24h,
@@ -177,9 +179,25 @@ def report(db='data/bikeshare.duckdb'):
                                     'equal_station_availability': float(station.availability.mean()),
                                     'coverage': float(station.valid_seconds.sum() /
                                         station.expected_eligible_seconds.sum()),
-                                    'stations_coverage_ge_80pct': int((station.coverage >= .8).sum())})
+                                    'stations_coverage_ge_80pct': int((station.coverage >= .8).sum()),
+                                    'stations_with_defined_availability': int(station.availability.notna().sum()),
+                                    'observed_closed_station_seconds': float(station.observed_closed_seconds.sum()),
+                                    'valid_station_seconds': float(station.valid_seconds.sum()),
+                                    'expected_eligible_station_seconds': float(station.expected_eligible_seconds.sum())})
                 live['sensitivity'] = metrics
+                live['vehicle_type_availability'] = []
+                for vehicle_type in ['1', '2']:
+                    typed = summarise(intervals(rows, start, end, vehicle_type=vehicle_type),
+                                      universe, start, end)
+                    live['vehicle_type_availability'].append({'vehicle_type_id': vehicle_type,
+                        'time_weighted_availability': float(weighted_availability(typed)),
+                        'coverage': float(typed.valid_seconds.sum() / typed.expected_eligible_seconds.sum())})
+                live['feed_age_seconds_median'] = float((rows.retrieved - rows.feed_time).median())
+                live['feed_age_seconds_p95'] = float((rows.retrieved - rows.feed_time).quantile(.95))
             Path('reports/pilot_summary.json').write_text(json.dumps(live, indent=2, allow_nan=False))
+    manifests = [dict(month=m, **json.loads(v)) for m, v in
+                 c.sql('select month, manifest from ingestion_manifest order by month').fetchall()]
+    Path('reports/source_manifest.json').write_text(json.dumps(manifests, indent=2))
     Path('reports/summary.json').write_text(json.dumps(summary, indent=2, default=str))
     c.close()
     return summary

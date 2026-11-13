@@ -14,3 +14,4 @@ __pycache__/
 /reports/private/
 .DS_Store
 /work/
+/dbt/.user.yml

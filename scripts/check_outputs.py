@@ -8,7 +8,12 @@ s = json.loads(Path('reports/summary.json').read_text())
 assert s['full_month_ingestion'], 'Do not publish feasibility rows as complete-period findings'
 assert s['conflicting_ride_ids'] == 0
 assert len(s['months']) == 3
-assert sum(x['n'] for x in s['months']) > 0
+eligible = sum(x['n'] for x in s['months'])
+assert eligible > 0
+source_rows = sum(x['n'] for x in s['quality_audit'])
+excluded = sum(x['n'] for x in s['quality_audit'] if x['quality_status'] != 'valid')
+assert eligible + excluded == source_rows  # Current real files have no duplicate IDs.
+assert s['duplicate_ride_rows'] == 0
 p = json.loads(Path('reports/pilot_summary.json').read_text())
 assert p['horizon_seconds'] < 86400, 'Update pilot narrative when collection matures'
 for m in p.get('sensitivity', []):

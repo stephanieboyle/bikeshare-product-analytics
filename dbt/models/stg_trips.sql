@@ -18,13 +18,13 @@ with parsed as (
    or timezone('America/New_York', end_utc - interval 1 hour) = end_local) as dst_unresolved
  from zoned
 )
-select *, case
+select *, strftime(start_local, '%Y%m') as analysis_month, case
  when nullif(ride_id, '') is null then 'missing_ride_id'
  when start_local is null or end_local is null then 'invalid_timestamp'
  when dst_unresolved then 'unresolved_dst'
  when duration_seconds <= 0 or duration_seconds > 86400 then 'invalid_duration'
  when rideable_type not in ('classic_bike','electric_bike') or rideable_type is null then 'unknown_rideable'
  when member_casual not in ('member','casual') or member_casual is null then 'unknown_category'
- when strftime(start_local, '%Y%m') != source_month then 'outside_source_month'
+ when strftime(start_local, '%Y%m') not in (select distinct source_month from raw_trips) then 'outside_analysis_period'
  else 'valid' end as quality_status
 from flagged
