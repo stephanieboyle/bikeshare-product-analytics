@@ -1,6 +1,6 @@
 # Hosting the reporting app somewhere else
 
-Checked official documentation on 13 November 2026. The owner prefers a free host without a ChatGPT URL. The dashboard is plain HTML/CSS/JavaScript, so no rewrite or paid server is required. No alternative provider has been deployed yet; the GitHub repository remains private.
+Checked official documentation on 13 November 2026. The owner prefers a free host without a ChatGPT URL. The dashboard is plain HTML/CSS/JavaScript, so no rewrite or paid server is required. Cloudflare Pages has now been selected by the owner. Deployment is prepared but requires the owner to sign in to Cloudflare and authorise the selected repository. The GitHub repository remains private.
 
 ## Cloudflare Pages: recommended while the repository stays private
 

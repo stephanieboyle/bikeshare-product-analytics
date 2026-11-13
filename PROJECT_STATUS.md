@@ -31,3 +31,8 @@ GitHub delivery is complete and the repository is verified private. Source obser
 ## Reporting app extension
 
 At the owner's request, built a five-section interactive portfolio app after validating the analysis: journey overview, station explorer, availability pilot, experiment lab and methods/evidence. Month/type/category filters, chart tooltips, station search/sort/pagination/CSV export, rule sensitivities, planning sliders and print view are implemented. Aggregate export reconciles to the same eligible-rental cohort. Desktop and mobile browser checks found no console errors or mobile page overflow. The latest palette follows the requested dusty blues, rose pinks and warm cream/peach colours. A working owner-private Sites preview has been deployed and its sign-in gate checked. The owner prefers a free host without a ChatGPT URL; no public-access change or alternative deployment has been made. `docs/hosting_options.md` records the shortlist and configuration. The GitHub checkpoint includes reproducible static app source under `dashboard/`.
+
+
+## Cloudflare Pages migration
+
+The owner selected Cloudflare Pages for a public portfolio URL while retaining the private GitHub repository. No Cloudflare credentials or connected plugin were available; the browser is at Cloudflare sign-in. Public-facing wording and an upload bundle are prepared. Git integration settings: production branch `main`, framework `None`, build command blank, output directory `dashboard`, root directory left at repository root. Restrict the GitHub app connection to `bikeshare-product-analytics`. Actual deployment and URL verification await account access; no Cloudflare deployment is claimed.
