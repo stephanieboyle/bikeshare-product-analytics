@@ -27,3 +27,7 @@
 Run commands from the repository root; installation and source downloads require network. See README for reproducibility and `docs/collection_runbook.md` for a local cron option. Pause collection during DuckDB analysis/writes. Do not commit source data or make the repository public without instruction.
 
 GitHub delivery is complete and the repository is verified private. Source observations remain local. The remaining work is evidence collection and operator/research access for a real field experiment, not a missing implementation or credential step.
+
+## Reporting app extension
+
+At the owner's request, built a five-section interactive portfolio app after validating the analysis: journey overview, station explorer, availability pilot, experiment lab and methods/evidence. Month/type/category filters, chart tooltips, station search/sort/pagination/CSV export, rule sensitivities, planning sliders and print view are implemented. Aggregate export reconciles to the same eligible-rental cohort. Desktop and mobile browser checks found no console errors or mobile page overflow. The latest palette follows the requested dusty blues, rose pinks and warm cream/peach colours. Deployment is in progress; the GitHub checkpoint includes reproducible static app source under `dashboard/`.

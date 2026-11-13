@@ -6,6 +6,8 @@
 
 Independent, non-commercial portfolio project using Capital Bikeshare's published data. No operator affiliation or endorsement.
 
+**Interactive reporting app:** source and local preview instructions are in [dashboard/](dashboard/README.md). The private hosted version is being prepared.
+
 ## The product decision
 
 A rider planning a regular journey needs a suitable bike at departure and a practical return option. Completed rentals show what the service delivered; they do not show everyone who tried and failed. This project separates physical availability, information freshness, rider decisions and journey outcomes.

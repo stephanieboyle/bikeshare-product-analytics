@@ -19,3 +19,5 @@
 | 2026-11-13 | Synthetic diagnostics in separate files | Demonstrate statistical implementation without suggesting an operator experiment or observed benefit |
 | 2026-11-13 | No dashboard, public publication or unattended days-long session | Prioritise validated analysis; supply scheduling instructions and evidence-maturity gates |
 | 2026-11-13 | Correct archive-month versus actual-start-month cohort | Boundary audit found August-start rentals in September's archive. Changed eligibility to the selected actual start-month set, retaining within-period boundary rentals and grouping by actual start month. Keep source month solely for provenance; document differing boundary patterns across archives |
+| 2026-11-13 | Add an interactive reporting app after analytical validation | Owner explicitly requested a dashboard. Static aggregate cells reconcile to the validated fact model; historical, prospective and synthetic evidence remain distinct |
+| 2026-11-13 | Warm dusty-blue, rose-pink and cream/peach palette | Owner rejected the initial green and cool indigo palettes; applied the warmer preference across charts, navigation and evidence labels |
