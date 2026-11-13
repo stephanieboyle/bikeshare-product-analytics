@@ -1,0 +1,99 @@
+{
+  "evidence_class": "SYNTHETIC, not an operator experiment",
+  "seed": 20261113,
+  "repetitions": 2000,
+  "users_per_arm": 4000,
+  "planned_users_per_arm_80pct": 8079,
+  "scenarios": {
+    "null": {
+      "target_risk_difference": 0,
+      "mean_estimate": 0.0003427500000000004,
+      "bias": 0.0003427500000000004,
+      "bias_mc_se": 0.0002321705198639504,
+      "coverage": 0.952,
+      "coverage_mc_se": 0.004779958158812692,
+      "rejection_rate": 0.048,
+      "rejection_mc_se": 0.0047799581588126895
+    },
+    "plausible_effect": {
+      "target_risk_difference": 0.02,
+      "mean_estimate": 0.019905125000000006,
+      "bias": -9.487499999999427e-05,
+      "bias_mc_se": 0.00022963716022208802,
+      "coverage": 0.9435,
+      "coverage_mc_se": 0.005162739098579358,
+      "rejection_rate": 0.4985,
+      "rejection_mc_se": 0.011180289575856253
+    },
+    "missing_at_random_complete_case": {
+      "target_risk_difference": 0.02,
+      "mean_estimate": 0.02043663197185765,
+      "bias": 0.00043663197185764974,
+      "bias_mc_se": 0.0002376495628790127,
+      "coverage": 0.9495,
+      "coverage_mc_se": 0.0048964145045124596,
+      "rejection_rate": 0.473,
+      "rejection_mc_se": 0.011164027051203344
+    },
+    "differential_missing_complete_case_BIASED": {
+      "target_risk_difference": 0.02,
+      "mean_estimate": 0.07718027082503252,
+      "bias": 0.05718027082503252,
+      "bias_mc_se": 0.0002348610533215988,
+      "coverage": 0.0,
+      "coverage_mc_se": 0.0,
+      "rejection_rate": 1.0,
+      "rejection_mc_se": 0.0
+    },
+    "immature_coded_failure_BIASED": {
+      "target_risk_difference": 0.02,
+      "mean_estimate": 0.014962374999999997,
+      "bias": -0.005037625000000004,
+      "bias_mc_se": 0.0002488311124356146,
+      "coverage": 0.9335,
+      "coverage_mc_se": 0.005571254347092763,
+      "rejection_rate": 0.269,
+      "rejection_mc_se": 0.009915618992276781
+    },
+    "mature_cohort_only": {
+      "target_risk_difference": 0.02,
+      "mean_estimate": 0.019953257213491928,
+      "bias": -4.674278650807287e-05,
+      "bias_mc_se": 0.00025655873287589316,
+      "coverage": 0.9525,
+      "coverage_mc_se": 0.00475624589355933,
+      "rejection_rate": 0.3985,
+      "rejection_mc_se": 0.010947551096021428
+    },
+    "spillover_at_half_saturation": {
+      "target_risk_difference": 0.02,
+      "mean_estimate": 0.019891624999999993,
+      "bias": -0.00010837500000000777,
+      "bias_mc_se": 0.00022651555731017524,
+      "coverage": 0.945,
+      "coverage_mc_se": 0.005097793640389931,
+      "rejection_rate": 0.5005,
+      "rejection_mc_se": 0.011180334297327607
+    },
+    "naive_event_independence_NULL": {
+      "target_risk_difference": 0,
+      "mean_estimate": -0.0001221875000000006,
+      "bias": -0.0001221875000000006,
+      "bias_mc_se": 0.00014274105144476018,
+      "coverage": 0.8865,
+      "coverage_mc_se": 0.007092874946028586,
+      "rejection_rate": 0.1135,
+      "rejection_mc_se": 0.007092874946028584
+    },
+    "user_mean_robust_NULL": {
+      "target_risk_difference": 0,
+      "mean_estimate": -0.0001221875000000006,
+      "bias": -0.0001221875000000006,
+      "bias_mc_se": 0.00014274105144476018,
+      "coverage": 0.953,
+      "coverage_mc_se": 0.004732388403332932,
+      "rejection_rate": 0.047,
+      "rejection_mc_se": 0.00473238840333293
+    }
+  }
+}

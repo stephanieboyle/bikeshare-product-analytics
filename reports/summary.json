@@ -1,0 +1,212 @@
+{
+  "evidence_class": "HISTORICAL completed rentals",
+  "months": [
+    {
+      "analysis_month": "202608",
+      "n": 645596,
+      "missing_start": 87592,
+      "missing_end": 91559,
+      "subminute": 14899,
+      "members": 451488,
+      "electric": 456366
+    },
+    {
+      "analysis_month": "202609",
+      "n": 676343,
+      "missing_start": 100443,
+      "missing_end": 105275,
+      "subminute": 15419,
+      "members": 483588,
+      "electric": 482927
+    },
+    {
+      "analysis_month": "202610",
+      "n": 677293,
+      "missing_start": 102030,
+      "missing_end": 108529,
+      "subminute": 12715,
+      "members": 493895,
+      "electric": 488813
+    }
+  ],
+  "quality_audit": [
+    {
+      "source_month": "202608",
+      "quality_status": "invalid_duration",
+      "n": 376
+    },
+    {
+      "source_month": "202608",
+      "quality_status": "outside_analysis_period",
+      "n": 148
+    },
+    {
+      "source_month": "202608",
+      "quality_status": "valid",
+      "n": 645558
+    },
+    {
+      "source_month": "202609",
+      "quality_status": "invalid_duration",
+      "n": 427
+    },
+    {
+      "source_month": "202609",
+      "quality_status": "valid",
+      "n": 676381
+    },
+    {
+      "source_month": "202610",
+      "quality_status": "invalid_duration",
+      "n": 311
+    },
+    {
+      "source_month": "202610",
+      "quality_status": "unresolved_dst",
+      "n": 3
+    },
+    {
+      "source_month": "202610",
+      "quality_status": "valid",
+      "n": 677293
+    }
+  ],
+  "duplicate_ride_rows": 0,
+  "conflicting_ride_ids": 0,
+  "core_window_departures": 597401,
+  "wide_window_departures": 789007,
+  "top_candidates": [
+    {
+      "departure_station_code": "31623",
+      "name": "Columbus Circle / Union Station",
+      "core": 8281,
+      "wide": 10607
+    },
+    {
+      "departure_station_code": "31124",
+      "name": "14th & Irving St NW",
+      "core": 5285,
+      "wide": 7244
+    },
+    {
+      "departure_station_code": "31699",
+      "name": "Eastern Market Metro",
+      "core": 5162,
+      "wide": 6800
+    },
+    {
+      "departure_station_code": "31229",
+      "name": "New Hampshire Ave & T St NW",
+      "core": 5094,
+      "wide": 6934
+    },
+    {
+      "departure_station_code": "31600",
+      "name": "5th & K St NW",
+      "core": 4817,
+      "wide": 6247
+    },
+    {
+      "departure_station_code": "31201",
+      "name": "15th & P St NW",
+      "core": 4601,
+      "wide": 6331
+    },
+    {
+      "departure_station_code": "31603",
+      "name": "1st & M St NE",
+      "core": 4106,
+      "wide": 5446
+    },
+    {
+      "departure_station_code": "31627",
+      "name": "M St & Delaware Ave NE",
+      "core": 3891,
+      "wide": 5004
+    },
+    {
+      "departure_station_code": "31213",
+      "name": "17th & K St NW",
+      "core": 3851,
+      "wide": 4665
+    },
+    {
+      "departure_station_code": "31296",
+      "name": "Columbia & Ontario Rd NW",
+      "core": 3609,
+      "wide": 4567
+    }
+  ],
+  "top10_overlap_core_wide": 8,
+  "period_start_local": "2026-08-01 00:00:00",
+  "period_end_local": "2026-10-31 00:00:00",
+  "full_month_ingestion": true,
+  "archive_month_boundaries": [
+    {
+      "source_month": "202608",
+      "start_month": "202607",
+      "end_month": "202608",
+      "n": 163
+    },
+    {
+      "source_month": "202608",
+      "start_month": "202608",
+      "end_month": "202608",
+      "n": 645919
+    },
+    {
+      "source_month": "202609",
+      "start_month": "202608",
+      "end_month": "202609",
+      "n": 50
+    },
+    {
+      "source_month": "202609",
+      "start_month": "202609",
+      "end_month": "202609",
+      "n": 676758
+    },
+    {
+      "source_month": "202610",
+      "start_month": "202610",
+      "end_month": "202610",
+      "n": 677423
+    },
+    {
+      "source_month": "202610",
+      "start_month": "202610",
+      "end_month": "202611",
+      "n": 184
+    }
+  ],
+  "duration_audit": {
+    "nonpositive": 0,
+    "over_24h": 1115,
+    "dst_unresolved": 3,
+    "start_outside_month": 213
+  },
+  "missing_stations_by_type": [
+    {
+      "rideable_type": "classic_bike",
+      "n": 571126,
+      "missing_start": 0,
+      "missing_end": 12
+    },
+    {
+      "rideable_type": "electric_bike",
+      "n": 1428106,
+      "missing_start": 290065,
+      "missing_end": 305351
+    }
+  ],
+  "weekday_arrivals_within_horizon": 1450719,
+  "weekday_departures_within_horizon": 1451857,
+  "weekday_calendar_days": 65,
+  "station_mapping": {
+    "historical_departure_codes": 873,
+    "current_metadata_codes": 875,
+    "unmatched_codes": 1,
+    "unmatched_departures": 2646,
+    "caveat": "Current metadata lookup is not a historical station dimension; no historical capacity join."
+  }
+}

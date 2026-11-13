@@ -1,0 +1,33 @@
+# Methodology and analytical contract
+
+## Historical rentals
+
+Population: published completed rentals represented in the three selected archives, with local starts in August–October 2026. Full-file ingestion is not proof that every real-world rental is published. Source grain: CSV row. Staging retains every row with a mutually exclusive quality reason. Fact grain: eligible ride ID, deterministic duplicate handling after quality filtering. Station-hour grain: actual local start month × weekday × local hour × departure station code. No station join can multiply trips; station-hour counts reconcile to trips with known departure station.
+
+Eligibility: nonblank ride ID, parseable timestamps, resolvable local time, positive duration ≤24 hours, known rideable type and published category, and actual local start month in the set of loaded archive months. Source archive month remains provenance, never a substitute for the actual start month. The 24-hour rule excludes extreme duration records from behavioural analysis; these may be legitimate long rentals, so exclusions and counts are reported, not called fraud. Subminute positive rides are retained and audited despite older website language saying they were removed. Missing station IDs remain in total volumes and rental mix; only the relevant station analysis excludes that missing direction. No individual retention, conversion or repeat-use analysis is possible.
+
+Duplicate ride IDs are counted; conflicting analytical attributes abort reporting pending review. Byte-identical source rows do not create extra rentals. A deterministic fact row is not permission to ignore conflicting versions. Unknown headers fail ingestion, and unknown categories fail eligibility visibly.
+
+Time: preserve raw source strings and parse local America/New_York, derive UTC TIMESTAMPTZ, and interpret behaviour by local start time. Timestamps have no explicit source offset, so their local semantics are an assumption. Detect spring-forward nonexistent hours by roundtrip and autumn ambiguous hours by ±1h roundtrip; exclude unresolved timestamps rather than invent their offset. Fixtures verify both transitions and summer/winter UTC offsets. No start-date DST transition falls in August–October, but three October-start rows end in the ambiguous November hour and are excluded. Elapsed availability time is always computed in UTC; a fall-back local hour can occur twice.
+
+Core weekday windows are assumptions about a possible regular journey, not inferred commuter labels: [07:00,10:00), [16:00,19:00); wider sensitivity [06:00,10:00), [15:00,20:00). Public holidays are not removed or relabelled. Heatmap divides each weekday/hour total by the number of matching calendar days, so unequal weekday counts do not masquerade as behaviour. The departure/arrival timing chart uses the same local calendar horizon for both endpoints, but the cohort is still selected by departure month, so early-boundary arrivals from preceding-month departures may be absent. No causal inference is made from month, station or category differences.
+
+## Prospective service and missingness
+
+Population: first-run station cohort during an explicit monitoring horizon, with the denominator and interval rules in the measurement framework. All available station IDs are monitored, including closures. A current short-code mapping is checked for uniqueness and mismatch; it is not treated as a historical slowly changing dimension. Full metadata and response provenance are retained locally at each run.
+
+Collector failures are logged in collection_runs; a missing scheduled run also appears as absence of observations, but cannot always be distinguished from machine sleep without scheduler logs. Distinguish source staleness, retrieval gaps, operating flags and fresh zero counts. Audit counts of available/disabled bikes and docks can exceed simple capacity expectations because of producer conventions or timing; do not manufacture inventory balances from them. A usable count is what the feed reports, not a guarantee that every bike can be unlocked.
+
+The initial technical sample has irregular gaps and too few days for rankings, recurrence or seasonal claims. Its sensitivity aggregates describe that horizon only. Do not extrapolate a few snapshots to commute reliability.
+
+## Estimands and uncertainty
+
+Immediate historical estimands are completed-rental counts and shares over the fixed observed months; no sampling confidence intervals are added to a census of the published file. Live estimands are conditional availability and data coverage over supported station-time. Missingness is reported, not assumed random. Stations with poor coverage must not rank as strong performers on a tiny denominator.
+
+For later inference about comparable future weeks, propose moving blocks of seven consecutive calendar days, resampling each block jointly across stations to preserve shared weather, events and repeated station observations. Aggregate numerator/denominator within each resample for ratio estimands, keeping the station universe fixed. At least eight complete weeks is an initial gate, not a mathematical sufficiency guarantee; inspect serial dependence, rare episodes and seasonal change before reporting intervals. The included `block_interval` helper demonstrates a consecutive equal-day-mean target and refuses fewer than 56 days; it does **not** estimate a pooled-time ratio or publish pilot intervals. A ratio/block panel analysis is deferred until real data exist.
+
+Two weeks is an exploratory pilot for logging, coverage and qualitative repeatability, not a universal sufficiency threshold. Recommend 8–12 weeks for weekday recurrence and block-based uncertainty, extending for low coverage, sparse events or atypical periods. No annual or seasonal inference follows even then. Station/window rankings are exploratory; use effect sizes and coverage first. Preselect a small decision set before formal comparisons, and control false discovery or simultaneous uncertainty if making many formal station claims.
+
+## Decision rules that may change the recommendation
+
+Better information is plausible if fresh statuses are available, problems recur in a rider-relevant window and acceptable nearby alternatives sometimes exist. Persistent network-wide shortages call for physical operations. Stale feeds call for information infrastructure before notifications. Low confirmed intent or poor alternative acceptance calls for research and redesign. Only a linked, valid experiment can establish feature impact on rental success; neither station comparisons nor the synthetic demonstration can do so.

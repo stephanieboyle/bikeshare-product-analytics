@@ -1,0 +1,26 @@
+[
+  {
+    "month": "202608",
+    "url": "https://s3.amazonaws.com/capitalbikeshare-data/202608-capitalbikeshare-tripdata.zip",
+    "retrieved_at": "2026-11-13T09:27:26.263733+00:00",
+    "sha256": "bd59385ba5a872f687d685269d6f6fec7cfe3e7bbf5c4de29422e73b87db4471",
+    "bytes": 24268203,
+    "row_limit": null
+  },
+  {
+    "month": "202609",
+    "url": "https://s3.amazonaws.com/capitalbikeshare-data/202609-capitalbikeshare-tripdata.zip",
+    "retrieved_at": "2026-11-13T09:27:33.406626+00:00",
+    "sha256": "5f4517b46f7c11e5eb088221f0b83d8c348931e157c117a93346048958171435",
+    "bytes": 25848624,
+    "row_limit": null
+  },
+  {
+    "month": "202610",
+    "url": "https://s3.amazonaws.com/capitalbikeshare-data/202610-capitalbikeshare-tripdata.zip",
+    "retrieved_at": "2026-11-13T09:25:22.599836+00:00",
+    "sha256": "f57da7b7b93f95d3e14f4377369b1db2aeb2c5f6542d30a60ecd25f4507a69fe",
+    "bytes": 32848117,
+    "row_limit": null
+  }
+]
