@@ -1,0 +1,18 @@
+version: 2
+models:
+  - name: fct_trips
+    description: One eligible completed rental per ride ID; no person identifier.
+    columns:
+      - name: ride_id
+        data_tests: [unique, not_null]
+      - name: start_utc
+        data_tests: [not_null]
+      - name: member_casual
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [member, casual]
+  - name: station_hour
+    columns:
+      - name: completed_departures
+        data_tests: [not_null]

@@ -1,0 +1,20 @@
+name: Offline analytical validation
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: astral-sh/setup-uv@v6
+        with:
+          version: '0.9.17'
+      - run: uv sync --frozen --extra dev
+      # Installation needs package access. Checks below use no credentials or source network.
+      - run: bash scripts/validate.sh
+        env:
+          DBT_SEND_ANONYMOUS_USAGE_STATS: 'false'

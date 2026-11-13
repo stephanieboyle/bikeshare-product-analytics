@@ -1,0 +1,9 @@
+name: bikeshare
+version: '1.0.0'
+config-version: 2
+profile: bikeshare
+model-paths: [models]
+test-paths: [tests]
+models:
+  bikeshare:
+    +materialized: table

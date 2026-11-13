@@ -1,0 +1,9 @@
+bikeshare:
+  target: local
+  outputs:
+    local:
+      type: duckdb
+      path: "{{ env_var('BIKESHARE_DB', 'data/bikeshare.duckdb') }}"
+      threads: 2
+      settings:
+        TimeZone: UTC
