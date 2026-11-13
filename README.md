@@ -8,11 +8,11 @@ Independent, non-commercial portfolio project using Capital Bikeshare's publishe
 
 **Interactive reporting app:** source and local preview instructions are in [dashboard/](dashboard/README.md). The private hosted version is being prepared.
 
-## The product decision
+## What I wanted to find out
 
-A rider planning a regular journey needs a suitable bike at departure and a practical return option. Completed rentals show what the service delivered; they do not show everyone who tried and failed. This project separates physical availability, information freshness, rider decisions and journey outcomes.
+I wanted to know when bike sharing is a dependable option for a regular journey. The first thing I needed to separate was completed rides from the journeys people tried but could not make. I looked at the trip patterns, built a way to collect availability data, and set out how I would test a feature intended to help.
 
-**Recommendation:** validate a saved-journey check that combines timely station information with acceptable nearby alternatives, then test rental success after an explicit departure intent. The existing app already shows bike and dock counts. The opportunity is incremental help at a useful moment, subject to a current-product audit and rider research—not a claim that maps or alerts are missing.
+**What I’d try next:** a simple check of a rider’s usual stations, how recent the counts are, and any suitable nearby options. I’d then test whether it helps someone start a rental after they have said they plan to ride. The existing app already shows bike and dock counts. The opportunity is incremental help at a useful moment, subject to a current-product audit and rider research—not a claim that maps or alerts are missing.
 
 ## What the evidence says
 
@@ -57,7 +57,7 @@ The last script runs offline fixture tests (including an actual dbt build), lint
 
 Raw data, DuckDB files and source caches are excluded from Git under the [data licence](https://capitalbikeshare.com/data-license-agreement). The [source manifest](reports/source_manifest.json) records download URLs, times, hashes and sizes without redistributing the dataset. Re-downloading may yield a publisher revision; compare hashes before comparing results. Prospective observations are time-specific and cannot be recreated later; new collection produces a new evidence window. Pause scheduled collection before database writes or reporting. Optional `MPLCONFIGDIR=work/mpl` keeps the plotting cache local.
 
-## Review the portfolio
+## Explore the work
 
 | Output | What to read |
 |---|---|
